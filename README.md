@@ -7,3 +7,5 @@ In order to replicate the full functionality of the Python 2 MySQLdb library, py
 Additional requirements:
   -Blmbrg API
   -MySQL
+
+MySQL requires login credentials.  Password stored as token.
