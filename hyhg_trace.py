@@ -12,27 +12,27 @@ index files are manually adjusted for CUSIP changes so all cusips listed in the 
 should overlap with the xlsm index files.
 
 '''
+import pymysql
+from sqlalchemy import create_engine
 
 import glob
 import os
 from dateutil.relativedelta import relativedelta
 import xlrd
+from MySQL_Authorization import MySQL_Auth
 from CompareNewToDB_PlusBBerg import *
 from CALENDAR import *
+import pandas as pd
 
 last_day = last_HYHG_liquid_date()
 print(last_day)
 next_day = get_next_day(last_day)
-next_day = '2017-05-31'
+#next_day = '2017-05-31'
 print(next_day)
 
 access_token = MySQL_Auth()
 conn = pymysql.connect(host='localhost', port=3306, user='tlack', passwd=access_token, db='bens_desk')
 engine = create_engine('mysql+pymysql://tlack:%s@localhost/bens_desk' %(access_token))
-
-startingDir = os.getcwd()
-
-maturity_cutoff = date.today() + relativedelta(months=+18)
 
 os.chdir('R:/Fixed Income/+Hedge High Yield/Archive/Index Holdings')
 
@@ -58,7 +58,6 @@ for file in list(glob.glob("HY_Citi_Index*")):
                         'mat_date': maturity,
                         'glic': glic,
                         'price': price})
-
 
         df['maturity'] = pd.to_datetime('1899-12-30') + pd.to_timedelta(df.mat_date, 'D')
         df['Date'] = pd.to_datetime('1899-12-30') + pd.to_timedelta(df.date, 'D')
