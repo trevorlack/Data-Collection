@@ -31,10 +31,8 @@ next_day = get_next_day(last_day)
 print(next_day)
 
 access_token = MySQL_Auth()
-conn = pymysql.connect(host='localhost', port=3306, user='tlack', passwd=access_token, db='bens_desk')
-engine = create_engine('mysql+pymysql://tlack:%s@localhost/bens_desk' %(access_token))
 
-os.chdir('R:/Fixed Income/+Hedge High Yield/Archive/Index Holdings')
+
 
 for file in list(glob.glob("HY_Citi_Index*")):
     tempfile = file
