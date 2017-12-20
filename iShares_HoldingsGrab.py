@@ -7,8 +7,8 @@ from sqlalchemy import create_engine
 from MySQL_Authorization import MySQL_Auth
 
 access_token = MySQL_Auth()
-conn = pymysql.connect(host='localhost', port=3306, user='tlack', passwd=access_token, db='bens_desk')
-engine = create_engine('mysql+pymysql://tlack:%s@localhost/bens_desk' %(access_token))
+conn = pymysql.connect(host='<>', port=<>, user='<>', passwd=<>, db='<>')
+engine = create_engine('<>+<>://<>:<>@localhost/<>')
 
 url = 'https://www.ishares.com/us/products/239565/ishares-iboxx-high-yield-corporate-bond-etf/1467271812596.ajax?fileType=csv&fileName=HYG_holdings&dataType=fund'
 
@@ -72,10 +72,10 @@ length = len(ISIN)
 
 try:
     db = pymysql.connect(
-        host='localhost',
-        user='tlack',
-        passwd=access_token,
-        db='bens_desk'
+        host='<>',
+        user='<>',
+        passwd=<>,
+        db='<>'
     )
 
 except Exception as e:
