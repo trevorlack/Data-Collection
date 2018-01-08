@@ -42,9 +42,6 @@ def Cusip_Bank(PSA_ID, old, new):
         elif cusip_iter = 'D':
             new_cusip_iter = 'E'
 
-        conn = pymysql.connect(host='localhost', port=3306, user='tlack', passwd='Porsche911!', db='bens_desk')
-        cursor = conn.cursor()
-
 def add_prior_day_line():
 
     add_performance_plug.to_sql('hyhg_indx_returns', engine, if_exists='append', index=False)
